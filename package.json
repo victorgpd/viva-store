@@ -5,9 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "vite build && copy dist\\index.html dist\\404.html",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@ant-design/icons": "^5.6.1",
