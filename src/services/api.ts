@@ -2,7 +2,8 @@ import axios from "axios";
 import { auth } from "./firebase";
 
 const api = axios.create({
-  baseURL: "https://unified-muskrat-known.ngrok-free.app/api/viva-store",
+  // baseURL: "https://unified-muskrat-known.ngrok-free.app/viva-store",
+  baseURL: "http://localhost:8300/viva-store",
   headers: {
     "Content-Type": "application/json",
   },
