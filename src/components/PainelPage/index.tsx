@@ -24,7 +24,7 @@ const PainelPage = ({ children, itemsCrumb }: PainelPage) => {
 
     atualizarDados();
 
-    const socket = new WebSocket("ws://localhost:3001");
+    const socket = new WebSocket("ws://https://unified-muskrat-known.ngrok-free.app");
 
     socket.onopen = () => {
       console.log("✅ Conectado ao WebSocket");
@@ -36,10 +36,6 @@ const PainelPage = ({ children, itemsCrumb }: PainelPage) => {
       if (["NOVA_COMPRA", "DELETE_COMPRA", "NOVA_VENDA", "DELETE_VENDA", "UPDATE_PRODUTO"].includes(msg.type)) {
         atualizarDados();
       }
-    };
-
-    socket.onclose = () => {
-      console.log("❌ WebSocket desconectado");
     };
 
     return () => {
