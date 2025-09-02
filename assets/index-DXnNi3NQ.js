@@ -2550,6 +2550,8 @@ SPDX-License-Identifier: Apache-2.0
   left: ${({$openIsMenu:e})=>e};
   z-index: 1000;
 
+  overflow-y: auto;
+
   transition: left 0.3s ease-in-out;
 
   @media screen and (max-width: 768px) {
