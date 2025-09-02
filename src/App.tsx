@@ -1,9 +1,9 @@
 import { loggedScreensRoutes, screensRoutes } from "./app/routes";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import { NotificationProvider } from "./context/notificationContext";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 function App() {
-  const router = createBrowserRouter([...screensRoutes, ...loggedScreensRoutes], { basename: "/viva-store/" });
+  const router = createHashRouter([...screensRoutes, ...loggedScreensRoutes]);
 
   return (
     <NotificationProvider>

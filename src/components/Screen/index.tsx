@@ -113,7 +113,9 @@ const Screen = () => {
 
   const onClick: MenuProps["onClick"] = (e) => {
     dispatch(setMenuSelected(e.keyPath));
-    handleMenuIsOpen();
+    if (width < 768) {
+      handleMenuIsOpen();
+    }
   };
 
   const handleMenuIsOpen = () => {
