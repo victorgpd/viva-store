@@ -28,8 +28,6 @@ export const useCompras = () => {
       await ComprasService.create(compra);
 
       notification.success("Compra adicionada com sucesso!");
-
-      getCompras();
     } catch {
       console.error();
       notification.error("Erro ao adicionar a compra!");
@@ -45,8 +43,6 @@ export const useCompras = () => {
       await ComprasService.remove(id);
 
       notification.success("Compra excluida com sucesso!");
-
-      getCompras();
     } catch {
       console.error();
       notification.error("Erro ao excluir a compra!");

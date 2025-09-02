@@ -27,8 +27,6 @@ export const useProducts = () => {
       await ProductsService.create(name);
 
       notification.success("Produto criado com sucesso!");
-
-      searchProductsDetails();
     } catch {
       console.error();
       notification.error("Erro ao criar o produto!");
@@ -44,8 +42,6 @@ export const useProducts = () => {
       await ProductsService.remove(id);
 
       notification.success("Produto excluido com sucesso!");
-
-      searchProductsDetails();
     } catch {
       console.error();
       notification.error("Erro ao excluir o produto!");

@@ -28,8 +28,6 @@ export const useVendas = () => {
       await VendasService.create(venda);
 
       notification.success("Venda adicionada com sucesso!");
-
-      getVendas();
     } catch {
       console.error();
       notification.error("Erro ao adicionar a venda!");
@@ -45,8 +43,6 @@ export const useVendas = () => {
       await VendasService.remove(id);
 
       notification.success("Venda excluida com sucesso!");
-
-      getVendas();
     } catch {
       console.error();
       notification.error("Erro ao excluir a venda!");
