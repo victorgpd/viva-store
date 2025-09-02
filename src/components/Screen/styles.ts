@@ -26,6 +26,8 @@ export const Sidebar = styled.aside<{ $openIsMenu: string }>`
   left: ${({ $openIsMenu }) => $openIsMenu};
   z-index: 1000;
 
+  overflow-y: auto;
+
   transition: left 0.3s ease-in-out;
 
   @media screen and (max-width: 768px) {
