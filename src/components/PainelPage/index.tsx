@@ -24,7 +24,7 @@ const PainelPage = ({ children, itemsCrumb }: PainelPage) => {
 
     atualizarDados();
 
-    const socket = new WebSocket("ws://https://unified-muskrat-known.ngrok-free.app");
+    const socket = new WebSocket("ws://unified-muskrat-known.ngrok-free.app");
 
     socket.onopen = () => {
       console.log("✅ Conectado ao WebSocket");
