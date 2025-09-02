@@ -4,6 +4,7 @@ import { ContainerPainel } from "./styles";
 import { useProducts } from "../../hooks/useProducts";
 import { useCompras } from "../../hooks/useCompras";
 import { useVendas } from "../../hooks/useVendas";
+import { useWebSocket } from "../../hooks/useWebSocket";
 
 interface PainelPage {
   children: ReactNode;
@@ -15,32 +16,20 @@ const PainelPage = ({ children, itemsCrumb }: PainelPage) => {
   const { getCompras } = useCompras();
   const { getVendas } = useVendas();
 
+  const atualizarDados = () => {
+    searchProductsDetails();
+    getCompras();
+    getVendas();
+  };
+
+  useWebSocket((msg) => {
+    if (["NOVA_COMPRA", "DELETE_COMPRA", "NOVA_VENDA", "DELETE_VENDA", "UPDATE_PRODUTO"].includes(msg.type)) {
+      atualizarDados();
+    }
+  });
+
   useEffect(() => {
-    const atualizarDados = () => {
-      searchProductsDetails();
-      getCompras();
-      getVendas();
-    };
-
     atualizarDados();
-
-    const socket = new WebSocket("ws://unified-muskrat-known.ngrok-free.app");
-
-    socket.onopen = () => {
-      console.log("✅ Conectado ao WebSocket");
-    };
-
-    socket.onmessage = (event) => {
-      const msg = JSON.parse(event.data);
-
-      if (["NOVA_COMPRA", "DELETE_COMPRA", "NOVA_VENDA", "DELETE_VENDA", "UPDATE_PRODUTO"].includes(msg.type)) {
-        atualizarDados();
-      }
-    };
-
-    return () => {
-      socket.close();
-    };
   }, []);
 
   return (
