@@ -3,6 +3,7 @@ import api from "./api";
 export const ProductsService = {
   getProductsDetails: async () => {
     const response = await api.get("/products-details");
+    console.log(response);
     return response.data;
   },
   create: async (name: string) => {

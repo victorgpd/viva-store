@@ -6,8 +6,8 @@ export function useWebSocket(onMessage: (msg: any) => void) {
 
   useEffect(() => {
     if (!socketRef.current) {
-      // socketRef.current = new WebSocket("wss://unified-muskrat-known.ngrok-free.app");
-      socketRef.current = new WebSocket("ws://localhost:8300");
+      socketRef.current = new WebSocket("wss://deciding-chamois-luckily.ngrok-free.app");
+      // socketRef.current = new WebSocket("ws://localhost:8300");
 
       socketRef.current.onopen = () => {
         console.log("✅ Conectado ao WebSocket");

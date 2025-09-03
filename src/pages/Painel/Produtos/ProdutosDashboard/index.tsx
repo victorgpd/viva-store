@@ -12,6 +12,7 @@ import { ButtonCadastro, SearchContainer } from "./styles";
 import { useProducts } from "../../../../hooks/useProducts";
 import { ButtonsTable, ContainerButtonsTable, ContainerTable } from "../../styles";
 import { AppstoreAddOutlined, DeleteOutlined, HomeOutlined, ShoppingCartOutlined, ShoppingOutlined, UnorderedListOutlined } from "@ant-design/icons";
+import { useEffect } from "react";
 
 type SearchProps = GetProps<typeof Input.Search>;
 
@@ -137,6 +138,10 @@ const ProdutosDashboard = () => {
       ),
     },
   ];
+
+  useEffect(() => {
+    console.log(products);
+  }, [products]);
 
   return (
     <PainelPage itemsCrumb={itemsCrumb}>
