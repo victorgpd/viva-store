@@ -12,7 +12,6 @@ import { ButtonCadastro, SearchContainer } from "./styles";
 import { useProducts } from "../../../../hooks/useProducts";
 import { ButtonsTable, ContainerButtonsTable, ContainerTable } from "../../styles";
 import { AppstoreAddOutlined, DeleteOutlined, HomeOutlined, ShoppingCartOutlined, ShoppingOutlined, UnorderedListOutlined } from "@ant-design/icons";
-import { useEffect } from "react";
 
 type SearchProps = GetProps<typeof Input.Search>;
 
@@ -118,16 +117,6 @@ const ProdutosDashboard = () => {
             <DeleteOutlined />
             <span>Excluir</span>
           </ButtonsTable>
-        </ContainerButtonsTable>
-      ),
-    },
-    {
-      title: "Ações",
-      key: "action",
-      fixed: "right",
-      width: "150px",
-      render: () => (
-        <ContainerButtonsTable>
           <ButtonsTable color="green" variant="outlined" loading={loading} onClick={() => navigate(RoutesEnum.Cadastrar_Venda)}>
             <ShoppingOutlined />
           </ButtonsTable>
@@ -138,10 +127,6 @@ const ProdutosDashboard = () => {
       ),
     },
   ];
-
-  useEffect(() => {
-    console.log(products);
-  }, [products]);
 
   return (
     <PainelPage itemsCrumb={itemsCrumb}>
